@@ -1,8 +1,10 @@
 1. Wczytanie danych
-Na początku kod wczytuje dane o transakcjach z pliku CSV, który zawiera informacje takie jak numer faktury, kod produktu, opis, ilość, cena jednostkowa, identyfikator klienta oraz kraj. Dane są potem przetwarzane, a zbędne wartości, takie jak puste komórki, są usuwane.
+Na początku kod wczytuje dane o transakcjach z pliku CSV, który zawiera informacje takie jak numer faktury, 
+kod produktu, opis, ilość, cena jednostkowa, identyfikator klienta oraz kraj. Dane są potem przetwarzane, a zbędne wartości, takie jak puste komórki, są usuwane.
 
 2. Czyszczenie danych
-Po wczytaniu danych, kod identyfikuje i usuwa błędne lub podejrzane wartości, takie jak ujemne ilości czy ceny, a także eliminuję wartości odstające, które mogą zniekształcać analizę. Na przykład, w przypadku ilości, odrzucane są transakcje z ilościami większymi niż 6000 sztuk, ponieważ mogą być to błędy w danych.
+Po wczytaniu danych, kod identyfikuje i usuwa błędne lub podejrzane wartości, takie jak ujemne ilości czy ceny, 
+a także eliminuję wartości odstające, które mogą zniekształcać analizę. Na przykład, w przypadku ilości, odrzucane są transakcje z ilościami większymi niż 6000 sztuk, ponieważ mogą być to błędy w danych.
 
 3. Przygotowanie danych do analizy RFM
 Następnie przechodzimy do kluczowej części analizy, czyli wyliczenia zmiennych RFM:
@@ -13,14 +15,20 @@ Monetary (M): To suma wydanych przez klienta pieniędzy.
 Dane są następnie agregowane na poziomie klienta, tworząc zbiór zawierający te trzy kluczowe zmienne.
 
 4. Skalowanie danych
-Przed przejściem do modelowania, dane są skalowane. Skalowanie jest konieczne, ponieważ zmienne takie jak ilość transakcji i wydane pieniądze mogą mieć różne zakresy wartości (np. częstotliwość zakupów jest znacznie mniejsza niż kwota wydana przez klienta), a to może wpłynąć na wyniki algorytmu klasteryzacji.
+Przed przejściem do modelowania, dane są skalowane. Skalowanie jest konieczne, ponieważ zmienne takie jak ilość transakcji i wydane pieniądze mogą mieć różne zakresy wartości 
+(np. częstotliwość zakupów jest znacznie mniejsza niż kwota wydana przez klienta), a to może wpłynąć na wyniki algorytmu klasteryzacji.
 
 5. Modelowanie - Klasteryzacja z użyciem KMeans
-Po przygotowaniu danych, kod wykorzystuje algorytm KMeans do przeprowadzenia klasteryzacji. Celem jest podzielenie klientów na grupy, które mają podobne wzorce zakupowe. Na podstawie wartości RFM klient może być przypisany do jednej z grup, która najlepiej odzwierciedla jego zachowanie. W kodzie przeprowadzona jest analiza "elbow", czyli badanie zmiany wartości "sumy kwadratów odległości" (SSD) w zależności od liczby klastrów, aby znaleźć optymalną liczbę grup.
+Po przygotowaniu danych, kod wykorzystuje algorytm KMeans do przeprowadzenia klasteryzacji. Celem jest podzielenie klientów na grupy, 
+które mają podobne wzorce zakupowe. Na podstawie wartości RFM klient może być przypisany do jednej z grup, która najlepiej odzwierciedla jego zachowanie. 
+W kodzie przeprowadzona jest analiza "elbow", czyli badanie zmiany wartości "sumy kwadratów odległości" (SSD) w zależności od liczby klastrów, aby znaleźć optymalną liczbę grup.
 
 6. Analiza wyników
-Na koniec, na podstawie uzyskanych wyników klasteryzacji, kod przypisuje klientów do poszczególnych klastrów. Rysowane są wykresy, które pomagają zwizualizować różnice pomiędzy grupami, takie jak rozkład wydatków w zależności od grupy klientów.
+Na koniec, na podstawie uzyskanych wyników klasteryzacji, kod przypisuje klientów do poszczególnych klastrów. 
+Rysowane są wykresy, które pomagają zwizualizować różnice pomiędzy grupami, takie jak rozkład wydatków w zależności od grupy klientów.
 
-Wyniki analizy mogą być pomocne dla sklepu internetowego, który dzięki temu może lepiej targetować oferty do różnych segmentów swoich klientów. Na przykład, klienci, którzy często dokonują zakupów (wysoka częstotliwość) i wydają dużo (wysokie wartości monetarne), mogą otrzymywać specjalne oferty lojalnościowe, a ci, którzy dokonali zakupu niedawno, mogą być bardziej skłonni do kolejnego zakupu.
+Wyniki analizy mogą być pomocne dla sklepu internetowego, który dzięki temu może lepiej targetować oferty do różnych segmentów swoich klientów. Na przykład, 
+klienci, którzy często dokonują zakupów (wysoka częstotliwość) i wydają dużo (wysokie wartości monetarne), mogą otrzymywać specjalne oferty lojalnościowe, a ci, 
+którzy dokonali zakupu niedawno, mogą być bardziej skłonni do kolejnego zakupu.
 
 Podsumowując, ten proces pozwala na lepsze zrozumienie zachowań zakupowych klientów i skuteczniejsze zarządzanie relacjami z nimi.
