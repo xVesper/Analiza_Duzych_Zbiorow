@@ -27,8 +27,4 @@ W kodzie przeprowadzona jest analiza "elbow", czyli badanie zmiany wartości "su
 Na koniec, na podstawie uzyskanych wyników klasteryzacji, kod przypisuje klientów do poszczególnych klastrów. 
 Rysowane są wykresy, które pomagają zwizualizować różnice pomiędzy grupami, takie jak rozkład wydatków w zależności od grupy klientów.
 
-Wyniki analizy mogą być pomocne dla sklepu internetowego, który dzięki temu może lepiej targetować oferty do różnych segmentów swoich klientów. Na przykład, 
-klienci, którzy często dokonują zakupów (wysoka częstotliwość) i wydają dużo (wysokie wartości monetarne), mogą otrzymywać specjalne oferty lojalnościowe, a ci, 
-którzy dokonali zakupu niedawno, mogą być bardziej skłonni do kolejnego zakupu.
-
 Podsumowując, ten proces pozwala na lepsze zrozumienie zachowań zakupowych klientów i skuteczniejsze zarządzanie relacjami z nimi.
